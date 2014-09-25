@@ -3979,16 +3979,24 @@ public class Parser {
         if (dataType.supportsPrecision || dataType.supportsScale) {
             if (readIf("(")) {
                 if (!readIf("MAX")) {
-                    long p = readLong();
-                    if (readIf("K")) {
-                        p *= 1024;
-                    } else if (readIf("M")) {
-                        p *= 1024 * 1024;
-                    } else if (readIf("G")) {
-                        p *= 1024 * 1024 * 1024;
+                    long p;
+                    if (!readIf("*"))
+                    {
+                        p = readLong();
+                        if (readIf("K")) {
+                            p *= 1024;
+                        } else if (readIf("M")) {
+                            p *= 1024 * 1024;
+                        } else if (readIf("G")) {
+                            p *= 1024 * 1024 * 1024;
+                        }
+                        if (p > Long.MAX_VALUE) {
+                            p = Long.MAX_VALUE;
+                        }
                     }
-                    if (p > Long.MAX_VALUE) {
-                        p = Long.MAX_VALUE;
+                    else
+                    {
+                        p = 38L;
                     }
                     original += "(" + p;
                     // Oracle syntax
