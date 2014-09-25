@@ -287,13 +287,13 @@ public class DataType {
         add(Value.DOUBLE, Types.DOUBLE, "Double",
                 createDecimal(ValueDouble.PRECISION, ValueDouble.PRECISION,
                         0, ValueDouble.DISPLAY_SIZE, false, false),
-                new String[] { "DOUBLE", "DOUBLE PRECISION" },
+                new String[] { "DOUBLE", "DOUBLE PRECISION", "BINARY_DOUBLE" },
                 24
         );
         add(Value.DOUBLE, Types.FLOAT, "Double",
                 createDecimal(ValueDouble.PRECISION, ValueDouble.PRECISION,
                         0, ValueDouble.DISPLAY_SIZE, false, false),
-                new String[] {"FLOAT", "FLOAT8" },
+                new String[] {"FLOAT", "FLOAT8", "FLOAT_DOUBLE" },
                 24
         );
         add(Value.TIME, Types.TIME, "Time",

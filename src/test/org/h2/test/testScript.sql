@@ -10057,3 +10057,9 @@ create table test(id int, name varchar);
 
 insert into test values(5, 'b'), (5, 'b'), (20, 'a');
 > update count: 3
+
+create table binary_types(bin_float binary_float, bin_double binary_double);
+> ok
+
+insert into binary_types(5.0, -1);
+> update count: 1
